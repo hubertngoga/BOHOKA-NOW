@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BOHOKA - Your Voice Matters. A platform for sharing stories, ideas and finding support.">
+<title>BOHOKA | Your Voice Matters</title>
+<style>
+:root {
+  --purple:#542b59;
+  --deep:#38203d;
+  --pink:#f4e6f0;
+  --light:#fcf8fb;
+  --text:#342c35;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--text);
+  background:var(--light);
+  line-height:1.6;
+}
+header{
+  background:var(--deep);
+  color:white;
+  padding:15px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+}
+.logo{font-size:27px;font-weight:900;letter-spacing:2px}
+.logo span{color:#e9a9d4}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav button{
+  border:0;background:none;color:white;
+  cursor:pointer;font-size:14px;
+}
+nav button:hover{color:#e9a9d4}
+.lang{
+  padding:8px 12px;border-radius:8px;
+  border:1px solid white;background:transparent;color:white;
+}
+main{min-height:65vh}
+.hero{
+  background:linear-gradient(120deg,#542b59,#9b648e);
+  color:white;text-align:center;padding:85px 20px;
+}
+.hero h1{font-size:clamp(30px,5vw,53px);line-height:1.2}
+.hero p{max-width:650px;margin:20px auto;font-size:18px}
+.btn{
+  display:inline-block;padding:13px 22px;
+  border:0;border-radius:7px;cursor:pointer;
+  background:var(--purple);color:white;
+  font-weight:bold;text-decoration:none;margin:5px;
+}
+.btn.light{background:white;color:var(--purple)}
+.btn:hover{opacity:.85}
+section{padding:55px 7%}
+h2{color:var(--purple);font-size:29px}
+.intro{text-align:center;max-width:750px;margin:auto}
+.cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;margin-top:30px;
+}
+.card{
+  background:white;border:1px solid #eadde8;
+  padding:25px;border-radius:12px;
+  box-shadow:0 4px 14px #38203d0b;
+}
+.card h3{color:var(--purple)}
+.card .symbol{font-size:30px}
+.page{display:none}
+.page.active{display:block}
+form{
+  max-width:700px;margin:auto;background:white;
+  padding:28px;border-radius:12px;
+  border:1px solid #eadde8;
+}
+label{display:block;font-weight:bold;margin:15px 0 6px}
+input,select,textarea{
+  width:100%;padding:12px;border:1px solid #cbbacb;
+  border-radius:7px;font-size:15px;background:white;
+}
+textarea{min-height:160px;resize:vertical}
+.notice{
+  background:var(--pink);padding:15px;
+  border-radius:8px;margin:18px 0;
+}
+.story{
+  background:white;padding:22px;border-radius:10px;
+  border:1px solid #eadde8;margin:15px 0;
+}
+footer{
+  background:var(--deep);color:white;
+  padding:35px 7%;text-align:center;
+}
+footer p{color:#e6d9e5}
+.small{font-size:13px;color:#777}
+@media(max-width:600px){
+  header{justify-content:center;text-align:center}
+  nav{justify-content:center;gap:12px}
+  .hero{padding:60px 18px}
+  section{padding:38px 5%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">BOHOKA<span>.</span></div>
+  <nav>
+    <button onclick="showPage('home')" data-rw="Ahabanza" data-en="Home">Ahabanza</button>
+    <button onclick="showPage('stories')" data-rw="Ubuhamya" data-en="Stories">Ubuhamya</button>
+    <button onclick="showPage('ideas')" data-rw="Ibitekerezo" data-en="Ideas">Ibitekerezo</button>
+    <button onclick="showPage('help')" data-rw="Ubufasha" data-en="Get help">Ubufasha</button>
+    <button onclick="showPage('about')" data-rw="Abo turi bo" data-en="About">Abo turi bo</button>
+  </nav>
+  <button class="lang" onclick="toggleLanguage()">EN / RW</button>
+</header>
+
+<main>
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="hero">
+    <h1 data-rw="NTUCECEKE. IJWI RYAWE RIFITE AGACIRO."
+        data-en="DON'T STAY SILENT. YOUR VOICE MATTERS.">
+      NTUCECEKE. IJWI RYAWE RIFITE AGACIRO.
+    </h1>
+    <p data-rw="Ntabwo uri wenyine. Ahantu ho kuvuga ukuri, gusangiza abandi ubuhamya no gushaka ubufasha."
+       data-en="You are not alone. A place to speak up, share experiences and find support.">
+      Ntabwo uri wenyine. Ahantu ho kuvuga ukuri, gusangiza abandi ubuhamya no gushaka ubufasha.
+    </p>
+    <button class="btn light" onclick="showPage('submit')" data-rw="TANGA UBUHAMYA" data-en="SHARE YOUR STORY">TANGA UBUHAMYA</button>
+    <button class="btn" style="border:1px solid white" onclick="showPage('stories')" data-rw="SOMA UBUHAMYA" data-en="READ STORIES">SOMA UBUHAMYA</button>
+  </div>
+
+  <section>
+    <div class="intro">
+      <h2 data-rw="Ikaze kuri BOHOKA" data-en="Welcome to BOHOKA">Ikaze kuri BOHOKA</h2>
+      <p data-rw="Duharanira umuryango urangwa n'uburinganire, ubutabera, kubahana no kumva ijwi rya buri wese."
+         data-en="We stand for equality, justice, respect and a society where every voice is heard.">
+        Duharanira umuryango urangwa n'uburinganire, ubutabera, kubahana no kumva ijwi rya buri wese.
+      </p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="symbol">💬</div>
+        <h3 data-rw="Tanga ubuhamya" data-en="Share your story">Tanga ubuhamya</h3>
+        <p data-rw="Sangiza abandi ibyabaye." data-en="Share your experience.">Sangiza abandi ibyabaye.</p>
+        <button class="btn" onclick="showPage('submit')" data-rw="Tangira" data-en="Start">Tangira</button>
+      </div>
+      <div class="card"><div class="symbol">🤝</div>
+        <h3 data-rw="Ibitekerezo" data-en="Community ideas">Ibitekerezo</h3>
+        <p data-rw="Kungurana ibitekerezo mu bwubahane." data-en="Exchange ideas respectfully.">Kungurana ibitekerezo mu bwubahane.</p>
+        <button class="btn" onclick="showPage('ideas')" data-rw="Ganira" data-en="Discuss">Ganira</button>
+      </div>
+      <div class="card"><div class="symbol">🛡️</div>
+        <h3 data-rw="Umutekano" data-en="Safety">Umutekano</h3>
+        <p data-rw="Twita ku burenganzira n'ubuzima bwite." data-en="We care about rights and privacy.">Twita ku burenganzira n'ubuzima bwite.</p>
+      </div>
+      <div class="card"><div class="symbol">❤️</div>
+        <h3 data-rw="Shaka ubufasha" data-en="Find support">Shaka ubufasha</h3>
+        <p data-rw="Menya aho wahera ushaka ubufasha." data-en="Find where to seek support.">Menya aho wahera ushaka ubufasha.</p>
+        <button class="btn" onclick="showPage('help')" data-rw="Reba hano" data-en="Learn more">Reba hano</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SUBMIT STORY -->
+<div id="submit" class="page">
+<section>
+<h2 data-rw="Tanga ubuhamya bwawe" data-en="Share your story">Tanga ubuhamya bwawe</h2>
+<p data-rw="Ijwi ryawe rifite agaciro. Hitamo uburyo wifuza kugaragaramo."
+   data-en="Your voice matters. Choose how you wish to appear.">Ijwi ryawe rifite agaciro. Hitamo uburyo wifuza kugaragaramo.</p>
+<form id="storyForm">
+  <label data-rw="Uburyo bwo kugaragara" data-en="Identity preference">Uburyo bwo kugaragara</label>
+  <select id="identity">
+    <option value="anonymous" data-rw="Ntagaragaze izina" data-en="Anonymous">Ntagaragaze izina</option>
+    <option value="named" data-rw="Nkoreshe izina" data-en="Use my name">Nkoreshe izina</option>
+  </select>
+  <div id="nameField" style="display:none">
+    <label data-rw="Izina" data-en="Name">Izina</label>
+    <input id="author" maxlength="60" placeholder="Izina ryawe">
+  </div>
+  <label data-rw="Icyiciro" data-en="Category">Icyiciro</label>
+  <select id="category">
+    <option>Ihohoterwa ryo mu rugo</option>
+    <option>Ihohoterwa rishingiye ku gitsina</option>
+    <option>Akarengane mu kazi</option>
+    <option>Uburenganzira bw'abana</option>
+    <option>Ibindi bitekerezo</option>
+  </select>
+  <label data-rw="Umutwe w'ubuhamya" data-en="Story title">Umutwe w'ubuhamya</label>
+  <input id="title" required maxlength="120" placeholder="Andika umutwe...">
+  <label data-rw="Ubuhamya bwawe" data-en="Your story">Ubuhamya bwawe</label>
+  <textarea id="message" required maxlength="5000" placeholder="Andika hano..."></textarea>
+  <div class="notice">
+    <strong data-rw="Kurinda ubuzima bwite" data-en="Protect your privacy">Kurinda ubuzima bwite</strong>
+    <p data-rw="Irinde gushyiramo nimero ya telefone, aderesi cyangwa amakuru y'ibanga. Ntutangaze amakuru y'abandi utabifitiye uburenganzira."
+       data-en="Avoid sharing phone numbers, addresses, confidential details or other people's private information.">
+       Irinde gushyiramo nimero ya telefone, aderesi cyangwa amakuru y'ibanga.
+    </p>
+  </div>
+  <label><input type="checkbox" id="consent" required style="width:auto">
+    <span data-rw="Nemera ko ubuhamya bwanjye busuzumwa mbere yo gutangazwa." data-en="I agree that my story must be reviewed before publication.">Nemera ko ubuhamya bwanjye busuzumwa mbere yo gutangazwa.</span>
+  </label>
+  <button class="btn" type="submit" data-rw="REBA UBUTUMWA" data-en="PREVIEW STORY">REBA UBUTUMWA</button>
+  <p id="formMessage" class="small" aria-live="polite"></p>
+</form>
+</section>
+</div>
+
+<!-- STORIES -->
+<div id="stories" class="page">
+<section>
+<h2 data-rw="Ubuhamya n'inkuru" data-en="Stories and experiences">Ubuhamya n'inkuru</h2>
+<p data-rw="Aha hazajya hagaragara ubuhamya bwemejwe n'abashinzwe BOHOKA."
+   data-en="Approved community stories will appear here.">Aha hazajya hagaragara ubuhamya bwemejwe n'abashinzwe BOHOKA.</p>
+<div class="story">
+  <small>BOHOKA • EXAMPLE</small>
+  <h3 data-rw="Ijwi rya buri mugore rirakwiye kumvwa"
+      data-en="Every woman's voice deserves to be heard">Ijwi rya buri mugore rirakwiye kumvwa</h3>
+  <p data-rw="Kubahana no kumva abandi ni intambwe ikomeye mu kubaka umuryango utekanye."
+     data-en="Respect and listening are important steps towards building safer communities.">Kubahana no kumva abandi ni intambwe ikomeye mu kubaka umuryango utekanye.</p>
+</div>
+<div class="story">
+  <small>BOHOKA • EXAMPLE</small>
+  <h3 data-rw="Dufatanye kurwanya akarengane"
+      data-en="Together against injustice">Dufatanye kurwanya akarengane</h3>
+  <p data-rw="Buri wese afite uruhare mu guteza imbere ubutabera n'uburinganire."
+     data-en="Everyone has a role in promoting justice and equality.">Buri wese afite uruhare mu guteza imbere ubutabera n'uburinganire.</p>
+</div>
+<p class="small" data-rw="Izi ni ingero gusa, si ubuhamya bw'abantu nyakuri."
+   data-en="These are sample posts, not real people's testimonies.">Izi ni ingero gusa, si ubuhamya bw'abantu nyakuri.</p>
+<button class="btn" onclick="showPage('submit')" data-rw="Tanga ubuhamya" data-en="Share your story">Tanga ubuhamya</button>
+</section>
+</div>
+
+<!-- IDEAS -->
+<div id="ideas" class="page">
+<section>
+<h2 data-rw="Ibitekerezo n'ibiganiro" data-en="Ideas and discussions">Ibitekerezo n'ibiganiro</h2>
+<div class="card">
+<h3 data-rw="Ni iki twakora ngo ihohoterwa ricike?"
+data-en="How can we help prevent abuse?">Ni iki twakora ngo ihohoterwa ricike?</h3>
+<p data-rw="Sangiza abandi ibitekerezo byawe ku kubaka umuryango utekanye."
+data-en="Share your ideas for building safer communities.">Sangiza abandi ibitekerezo byawe ku kubaka umuryango utekanye.</p>
+<button class="btn" onclick="showPage('submit')" data-rw="Tanga igitekerezo" data-en="Share an idea">Tanga igitekerezo</button>
+</div>
+</section>
+</div>
+
+<!-- HELP -->
+<div id="help" class="page">
+<section>
+<h2 data-rw="Shaka ubufasha" data-en="Find support">Shaka ubufasha</h2>
+<div class="notice">
+<h3 data-rw="Uri mu kaga ako kanya?" data-en="Are you in immediate danger?">Uri mu kaga ako kanya?</h3>
+<p data-rw="Shaka ahantu hatekanye niba bishoboka, kandi hamagara inzego z'ubutabazi cyangwa umuntu wizeye."
+data-en="Move to a safer place if possible and contact emergency services or someone you trust.">Shaka ahantu hatekanye niba bishoboka, kandi hamagara inzego z'ubutabazi cyangwa umuntu wizeye.</p>
+</div>
+<h3 data-rw="Ubufasha buzaboneka kuri BOHOKA" data-en="Support resources on BOHOKA">Ubufasha buzaboneka kuri BOHOKA</h3>
+<ul>
+<li data-rw="Imiryango ifasha abahuye n'ihohoterwa." data-en="Organizations supporting survivors.">Imiryango ifasha abahuye n'ihohoterwa.</li>
+<li data-rw="Ubufasha mu by'amategeko." data-en="Legal assistance.">Ubufasha mu by'amategeko.</li>
+<li data-rw="Serivisi z'ubuvuzi n'ubujyanama." data-en="Medical and counselling services.">Serivisi z'ubuvuzi n'ubujyanama.</li>
+</ul>
+<p class="small" data-rw="Amakuru y'inzego n'imiryango azashyirwaho amaze kugenzurwa."
+data-en="Contact details will be published after verification.">Amakuru y'inzego n'imiryango azashyirwaho amaze kugenzurwa.</p>
+</section>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+<section>
+<h2 data-rw="Abo turi bo" data-en="About BOHOKA">Abo turi bo</h2>
+<p data-rw="BOHOKA ni urubuga rugamije guha ijambo abantu, cyane cyane abagore, bahuye n'akarengane cyangwa ihohoterwa."
+data-en="BOHOKA is a platform designed to give people, especially women, a voice when they experience injustice or abuse.">BOHOKA ni urubuga rugamije guha ijambo abantu, cyane cyane abagore, bahuye n'akarengane cyangwa ihohoterwa.</p>
+<h3 data-rw="Intego yacu" data-en="Our mission">Intego yacu</h3>
+<p data-rw="Kubaka umuryango urangwa n'ubutabera, uburinganire, umutekano no kubahana."
+data-en="To build a society based on justice, equality, safety and respect.">Kubaka umuryango urangwa n'ubutabera, uburinganire, umutekano no kubahana.</p>
+</section>
+</div>
+</main>
+
+<footer>
+<div class="logo">BOHOKA<span>.</span></div>
+<p data-rw="Ntucceceke. Ijwi ryawe rifite agaciro."
+data-en="Speak up. Your voice matters.">Ntucceceke. Ijwi ryawe rifite agaciro.</p>
+<p>© 2026 BOHOKA. All rights reserved.</p>
+<p class="small">Privacy • Safety • Respect</p>
+</footer>
+
+<script>
+let language="rw";
+
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function toggleLanguage(){
+  language=language==="rw"?"en":"rw";
+  document.documentElement.lang=language;
+  document.querySelectorAll("[data-rw]").forEach(el=>{
+    const value=el.getAttribute("data-"+language);
+    if(value) el.textContent=value;
+  });
+}
+
+document.getElementById("identity").addEventListener("change",function(){
+  document.getElementById("nameField").style.display=
+    this.value==="named"?"block":"none";
+});
+
+document.getElementById("storyForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const named=document.getElementById("identity").value==="named";
+  if(named && !document.getElementById("author").value.trim()){
+    alert("Please enter your name.");
+    return;
+  }
+  document.getElementById("formMessage").textContent=
+    language==="rw"
+    ?"Ibyo wanditse byateguwe. Iyi ni demo: nta makuru yoherejwe cyangwa ngo abikwe. Backend izashyirwaho nyuma."
+    :"Your entry is ready for preview. This is a demo: nothing was sent or stored. The secure backend will be added later.";
+});
+</script>
+</body>
+</html>
